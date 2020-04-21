@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Open Flood</string>
+    <string name="app_name">Color Flood</string>
 
     <!-- Game Activity -->
     <string name="game_seed_copied">Board seed copied to clipboard</string>
