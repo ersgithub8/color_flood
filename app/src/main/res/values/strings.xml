@@ -49,4 +49,8 @@
        1. Seeds allow you to save interesting boards to play later or share with your friends. \n2. To generate a board from a seed, hold down the new game button.
     </string>
     <string name="info_back">Back</string>
+
+
+    <string name="add_app_id" translatable="false">ca-app-pub-9149322965349927~5270269983</string>
+    <string name="banner" translatable="false">ca-app-pub-9149322965349927/5078698295</string>
 </resources>
