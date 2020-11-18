@@ -2,9 +2,12 @@ package com.gunshippenguin.openflood;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import androidx.fragment.app.DialogFragment;
@@ -45,6 +48,9 @@ public class GameActivity extends AppCompatActivity
 
     // Paints to be used for the board
     private Paint paints[];
+
+    boolean connected = false;
+    AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,7 +140,13 @@ public class GameActivity extends AppCompatActivity
             // Set up a new game
             newGame();
         }
+
+
+
+
     }
+
+
 
     @Override
     public void onStop() {

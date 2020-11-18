@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 /**
  * Activity displaying information about the application.
  */
@@ -19,6 +22,13 @@ public class InfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
+
+        AdView mAdView;
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
 
         // Set up the first line of the info
       //  TextView versionTextView = (TextView) findViewById(R.id.infoVersionTextView);
@@ -45,16 +55,16 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.appNameTextView).setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                Toast toast = Toast.makeText(InfoActivity.this,
-                        "Eric Hamber Secondary Class of 2016",
-                        Toast.LENGTH_LONG);
-                toast.show();
-                return true;
-            }
-        });
+//       // findViewById(R.id.appNameTextView).setOnLongClickListener(new View.OnLongClickListener() {
+//            @Override
+//            public boolean onLongClick(View v) {
+//                Toast toast = Toast.makeText(InfoActivity.this,
+//                        "Eric Hamber Secondary Class of 2016",
+//                        Toast.LENGTH_LONG);
+//                toast.show();
+//                return true;
+//            }
+//        });
 
         return;
     }

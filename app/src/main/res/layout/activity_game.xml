@@ -24,22 +24,23 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             ads:adSize="BANNER"
+            android:visibility="visible"
             ads:adUnitId="@string/banner">
         </com.google.android.gms.ads.AdView>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:visibility="gone"
             android:layout_height="match_parent"
             android:gravity="center">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:src="@mipmap/ic_launcher"
-                android:id="@+id/imageView" />
+            <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/app_name"
+
+                        android:textSize="@dimen/large_text_size" />
         </LinearLayout>
 
         <TextView
@@ -78,31 +79,33 @@
                 android:gravity="start">
                 <ImageButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_reload"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:layout_marginRight="9dp"
-                    android:id="@+id/newGameButton" />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="9dp"
-                    android:src="@drawable/ic_about"
-                    android:scaleType="centerCrop"
-                    android:adjustViewBounds="true"
-                    android:background="@null"
-                    android:id="@+id/infoButton" />
-
-                <ImageButton
-                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_settings"
                     android:scaleType="centerCrop"
                     android:adjustViewBounds="true"
                     android:background="@null"
                     android:id="@+id/settingsButton" />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="11dp"
+                    android:layout_marginLeft="9dp"
+                    android:src="@drawable/ic_information"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:id="@+id/infoButton" />
+
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_loading"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"
+                    android:background="@null"
+                    android:layout_marginRight="9dp"
+                    android:id="@+id/newGameButton" />
 
 
             </LinearLayout>
