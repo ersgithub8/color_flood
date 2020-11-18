@@ -59,25 +59,29 @@
             android:layout_height="wrap_content"
             android:text="@string/settings_settings"
             android:textSize="@dimen/medium_text_size"
+            android:textColor="@color/pwBlack"
             android:id="@+id/settingsTextView"
             android:layout_gravity="center_horizontal" />
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_text_size"
                 android:text="@string/settings_board_size"
-                android:id="@+id/textView" />
+                android:id="@+id/textView"
+                android:layout_margin="6dp"/>
 
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+
                 android:id="@+id/boardSizeRadioGroup">
 
             </RadioGroup>
@@ -87,7 +91,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,9 +116,11 @@
             android:layout_height="wrap_content"
             android:text="@string/settings_color_blind"
             android:textSize="@dimen/small_text_size"
+            android:layout_margin="6dp"
             android:id="@+id/colorBlindCheckBox" />
 
         <CheckBox
+            android:layout_margin="6dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_old_colors"
@@ -124,10 +131,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings_clear_high_scores_button"
+            android:textColor="#fff"
+            android:textStyle="bold"
             android:textSize="@dimen/small_text_size"
+            android:padding="10dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/button1"
             android:id="@+id/clearHighScoresButton" />
 
         <LinearLayout
+            android:layout_margin="6dp"
+
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -137,7 +151,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/settings_apply_button"
+                android:textColor="#fff"
+                android:padding="10dp"
+                android:textStyle="bold"
                 android:textSize="@dimen/small_text_size"
+                android:background="@drawable/button1"
                 android:id="@+id/applyButton" />
         </LinearLayout>
 

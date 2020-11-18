@@ -111,15 +111,15 @@
                 android:textStyle="italic"
                 android:id="@+id/textView5" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_seeds_title"
-                android:textSize="@dimen/medium_text_size"
-                android:layout_gravity="center"
-                android:id="@+id/textView8"
-                android:textColor="@color/pwBlack"
-                android:textStyle="bold"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/info_seeds_title"-->
+<!--                android:textSize="@dimen/medium_text_size"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/textView8"-->
+<!--                android:textColor="@color/pwBlack"-->
+<!--                android:textStyle="bold"/>-->
 
             <TextView
                 android:layout_width="wrap_content"
@@ -136,9 +136,12 @@
                 android:text="@string/info_back"
                 android:textSize="@dimen/small_text_size"
                 android:id="@+id/backButton"
-                android:textColor="@color/pwBlack"
+                android:textColor="#fff"
                 android:textStyle="bold"
-                android:layout_gravity="center_horizontal" />
+                android:background="@drawable/button1"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                />
 
         </LinearLayout>
 

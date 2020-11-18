@@ -26,6 +26,11 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.gson.Gson;
 
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 /**
  * Activity allowing the user to play the actual game.
  */
@@ -49,9 +54,8 @@ public class GameActivity extends AppCompatActivity
     // Paints to be used for the board
     private Paint paints[];
 
-    boolean connected = false;
-    AdView adView;
-
+    LinearLayout adlayout;
+    InterstitialAd mInterstitialAd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,30 +63,39 @@ public class GameActivity extends AppCompatActivity
 
 
         AdView mAdView;
-        final InterstitialAd mInterstitialAd;
+         
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
+        mInterstitialAdd();
 
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-9149322965349927/1139453282");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+       
 
-        mInterstitialAd.setAdListener(new AdListener() {
+
+        ScheduledExecutorService scheduledExecutorService= Executors.newSingleThreadScheduledExecutor();
+        scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
             @Override
-            public void onAdLoaded() {
-                // Load the next interstitial.
-                // mInterstitialAd.loadAd(new AdRequest.Builder().build());
-                if (mInterstitialAd.isLoaded()) {
-                    mInterstitialAd.show();
-                } else {
-                    //Log.d("TAG", "The interstitial wasn't loaded yet.");
-                }
-            }
+            public void run() {
+                  runOnUiThread(new Runnable() {
+                      @Override
+                      public void run() {
+                          if (mInterstitialAd.isLoaded()) {
+                              mInterstitialAd.show();
+                          }
+                          else {
+//                              Toast.makeText(GameActivity.this, "Interstitial Not Loaded", Toast.LENGTH_SHORT).show();
+                          }
 
-        });
+                          mInterstitialAdd();
+
+                      }
+                  });
+            }
+        },1,1, TimeUnit.MINUTES);
+
+
 
         // Initialize the SharedPreferences and SharedPreferences editor
         sp = PreferenceManager.getDefaultSharedPreferences(this);
@@ -143,9 +156,44 @@ public class GameActivity extends AppCompatActivity
 
 
 
+        adlayout=(LinearLayout) findViewById(R.id.adlayout);
+
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+
+            adlayout.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+
+
+            adlayout.setVisibility(View.GONE);
+        }
+
 
     }
 
+    private void mInterstitialAdd() {
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-9149322965349927/1139453282");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                // Load the next interstitial.
+                // mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    //Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
+            }
+
+        });
+    }
 
 
     @Override
@@ -257,6 +305,7 @@ public class GameActivity extends AppCompatActivity
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == UPDATE_SETTINGS) {
             if (resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();

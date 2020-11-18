@@ -46,7 +46,7 @@
     </string>
     <string name="info_seeds_title">Seeds</string>
     <string name="info_seeds">
-       1. Seeds allow you to save interesting boards to play later or share with your friends. \n2. To generate a board from a seed, hold down the new game button.
+       3. Seeds allow you to save interesting boards to play later or share with your friends. \n4. To generate a board from a seed, hold down the new game button.
     </string>
     <string name="info_back">Back</string>
 
