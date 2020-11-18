@@ -12,5 +12,5 @@
     <dimen name="outer_layout_padding">5dp</dimen>
     <dimen name="endgame_padding">15dp</dimen>
 
-    <dimen name="corners">8dp</dimen>
+    <dimen name="corners">15dp</dimen>
 </resources>

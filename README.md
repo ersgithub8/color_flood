@@ -25,6 +25,7 @@ color in less than the maximum number of allowed moves.
 You can customize the number of colors and the board size by tapping the gear
 icon.
 
+
 You can generate a board from a seed by holding down the new game (star) icon.
 
 ## Building / Installing

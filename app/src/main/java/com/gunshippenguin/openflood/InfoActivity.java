@@ -21,20 +21,20 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         // Set up the first line of the info
-        TextView versionTextView = (TextView) findViewById(R.id.infoVersionTextView);
+      //  TextView versionTextView = (TextView) findViewById(R.id.infoVersionTextView);
         String appName = getResources().getString(R.string.app_name);
 
         PackageInfo pInfo;
         try {
             pInfo = getPackageManager().getPackageInfo(this.getPackageName(), 0);
-            versionTextView.setText(appName + " " + pInfo.versionName);
+          //  versionTextView.setText(appName + " " + pInfo.versionName);
         } catch (PackageManager.NameNotFoundException e) {
-            versionTextView.setText(appName);
+         //   versionTextView.setText(appName);
         }
 
         // Set up the source link
-        TextView sourceTextView = (TextView) findViewById(R.id.infoSourceTextView);
-        sourceTextView.setMovementMethod(LinkMovementMethod.getInstance());
+       // TextView sourceTextView = (TextView) findViewById(R.id.infoSourceTextView);
+      //  sourceTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         // Set up the back button
         Button backButton = (Button) findViewById(R.id.backButton);

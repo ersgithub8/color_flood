@@ -95,7 +95,7 @@ public class Game {
     }
 
     private void initMaxSteps() {
-        maxSteps = (int) 30 * (boardSize * numColors) / (17 * 6);
+        maxSteps = (int) 30 * (boardSize * numColors) / (17 * 4);
     }
 
     public void flood(int replacementColor) {
